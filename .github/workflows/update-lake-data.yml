@@ -7,7 +7,7 @@ on:
   workflow_dispatch:      # Allows manual trigger
   push:
     paths:
-      - 'src/**'         # Run when source code is updated
+      - 'data/**/*.json'  # Run when JSON files are updated
       - '.github/workflows/**'
 
 jobs:
@@ -23,30 +23,10 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
     - name: Configure Git
       run: |
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-    - name: Update Lake Data
-      run: |
-        # Create necessary directories if they don't exist
-        mkdir -p data history
-
-        # Run the update script
-        node src/updateLakeData.js
-      env:
-        NODE_ENV: production
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Check for changes
       id: check_changes
@@ -57,7 +37,7 @@ jobs:
       if: steps.check_changes.outputs.changes == 'true'
       run: |
         # Stage the changes
-        git add data/ history/
+        git add data/
 
         # Get current date for commit message
         DATE=$(date '+%Y-%m-%d')
