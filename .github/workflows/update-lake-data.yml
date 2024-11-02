@@ -13,17 +13,20 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write    # Required for pushing changes
+      issues: write      # Required for creating issues on failure
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # Updated to v4
       with:
         fetch-depth: 0   # Fetch all history for git operations
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4  # Updated to v4
       with:
-        node-version: '18.x'
+        node-version: '20'  # Updated to Node.js 20
         cache: 'npm'
 
     - name: Install dependencies
@@ -43,6 +46,7 @@ jobs:
         node src/updateLakeData.js
       env:
         NODE_ENV: production
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Added for API access
 
     - name: Check for changes
       id: check_changes
@@ -81,7 +85,7 @@ jobs:
         git push
 
     - name: Create Summary
-      if: success()
+      if: always()  # Changed to always run
       run: |
         echo "## Lake Data Update Summary" >> $GITHUB_STEP_SUMMARY
         echo "🕒 Update Time: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
@@ -93,16 +97,9 @@ jobs:
           echo "- Last Updated: $(grep '"lastUpdated":' data/lake_levels.json | head -1)" >> $GITHUB_STEP_SUMMARY
         fi
 
-    - name: Handle Failures
+    - name: Notify on Failure
       if: failure()
-      run: |
-        echo "## ❌ Update Failed" >> $GITHUB_STEP_SUMMARY
-        echo "The lake data update process encountered an error." >> $GITHUB_STEP_SUMMARY
-        echo "Please check the action logs for more details." >> $GITHUB_STEP_SUMMARY
-
-    - name: Notify on Failure (Optional)
-      if: failure()
-      uses: actions/github-script@v6
+      uses: actions/github-script@v8  # Updated to v8
       with:
         script: |
           const issue = await github.rest.issues.create({
