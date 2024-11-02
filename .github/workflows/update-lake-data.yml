@@ -1,0 +1,113 @@
+name: Update Lake Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
+    - cron: '0 6 * * *'  # Runs at 06:00 UTC every day
+  workflow_dispatch:      # Allows manual trigger
+  push:
+    paths:
+      - 'src/**'         # Run when source code is updated
+      - '.github/workflows/**'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0   # Fetch all history for git operations
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Configure Git
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Update Lake Data
+      run: |
+        # Create necessary directories if they don't exist
+        mkdir -p data history
+
+        # Run the update script
+        node src/updateLakeData.js
+      env:
+        NODE_ENV: production
+
+    - name: Check for changes
+      id: check_changes
+      run: |
+        git diff --quiet || echo "changes=true" >> $GITHUB_OUTPUT
+
+    - name: Commit and push if changed
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        # Stage the changes
+        git add data/ history/
+
+        # Get current date for commit message
+        DATE=$(date '+%Y-%m-%d')
+        
+        # Create commit message with summary of changes
+        echo "Lake Data Update $DATE" > commit_msg.txt
+        echo "" >> commit_msg.txt
+        echo "Changes detected in:" >> commit_msg.txt
+        
+        # Add summary of changed files
+        echo "Modified files:" >> commit_msg.txt
+        git diff --cached --name-status >> commit_msg.txt
+        
+        # Add basic statistics if available
+        if [ -f "data/lake_levels.json" ]; then
+          echo "" >> commit_msg.txt
+          echo "Statistics:" >> commit_msg.txt
+          echo "- Total lakes updated: $(grep -o '"name":' data/lake_levels.json | wc -l)" >> commit_msg.txt
+        fi
+
+        # Commit with the generated message
+        git commit -F commit_msg.txt
+
+        # Push changes
+        git push
+
+    - name: Create Summary
+      if: success()
+      run: |
+        echo "## Lake Data Update Summary" >> $GITHUB_STEP_SUMMARY
+        echo "🕒 Update Time: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "data/lake_levels.json" ]; then
+          echo "### Statistics" >> $GITHUB_STEP_SUMMARY
+          echo "- Total Lakes: $(grep -o '"name":' data/lake_levels.json | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Last Updated: $(grep '"lastUpdated":' data/lake_levels.json | head -1)" >> $GITHUB_STEP_SUMMARY
+        fi
+
+    - name: Handle Failures
+      if: failure()
+      run: |
+        echo "## ❌ Update Failed" >> $GITHUB_STEP_SUMMARY
+        echo "The lake data update process encountered an error." >> $GITHUB_STEP_SUMMARY
+        echo "Please check the action logs for more details." >> $GITHUB_STEP_SUMMARY
+
+    - name: Notify on Failure (Optional)
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const issue = await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `⚠️ Lake Data Update Failed - ${new Date().toISOString().split('T')[0]}`,
+            body: `The automated lake data update failed. Please check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`
+          });
