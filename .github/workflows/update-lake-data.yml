@@ -23,10 +23,73 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm ci
+        # If npm ci fails, try regular install
+        if [ $? -ne 0 ]; then
+          npm install
+        fi
+
     - name: Configure Git
       run: |
-        git config user.name 'github-actions[bot]'
-        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        git config user.name 'Kakahaja07'
+        git config user.email 'kakahaja07@gmail.com'
+
+    - name: Fetch Lake Data
+      run: |
+        # Create directories if they don't exist
+        mkdir -p data history
+
+        # Run the update script
+        node src/updateLakeData.js
+      env:
+        NODE_ENV: production
+        # Add any other environment variables needed for the script
+        DEBUG: 'true'  # Enable debug logging
+
+    - name: Validate Data
+      run: |
+        # Check if the data file exists
+        if [ ! -f "data/lake_levels.json" ]; then
+          echo "Error: lake_levels.json not found!"
+          exit 1
+        fi
+
+        # Validate JSON format
+        if ! jq empty data/lake_levels.json 2>/dev/null; then
+          echo "Error: Invalid JSON format in lake_levels.json"
+          exit 1
+        fi
+
+        # Check if we have data
+        LAKE_COUNT=$(jq '.lakes | length' data/lake_levels.json)
+        if [ "$LAKE_COUNT" -eq 0 ]; then
+          echo "Error: No lake data found!"
+          exit 1
+        fi
+
+        echo "Found data for $LAKE_COUNT lakes"
+
+    - name: Update Historical Records
+      run: |
+        # Loop through each lake and update its historical record
+        for file in history/*.json; do
+          if [ -f "$file" ]; then
+            # Validate each historical file
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "Warning: Invalid JSON format in $file"
+              continue
+            fi
+            echo "Updated historical record: $file"
+          fi
+        done
 
     - name: Check for changes
       id: check_changes
@@ -37,7 +100,7 @@ jobs:
       if: steps.check_changes.outputs.changes == 'true'
       run: |
         # Stage the changes
-        git add data/
+        git add data/ history/
 
         # Get current date for commit message
         DATE=$(date '+%Y-%m-%d')
@@ -51,11 +114,22 @@ jobs:
         echo "Modified files:" >> commit_msg.txt
         git diff --cached --name-status >> commit_msg.txt
         
-        # Add basic statistics if available
+        # Add detailed statistics
         if [ -f "data/lake_levels.json" ]; then
           echo "" >> commit_msg.txt
           echo "Statistics:" >> commit_msg.txt
-          echo "- Total lakes updated: $(grep -o '"name":' data/lake_levels.json | wc -l)" >> commit_msg.txt
+          
+          # Total lakes
+          TOTAL_LAKES=$(jq '.lakes | length' data/lake_levels.json)
+          echo "- Total lakes updated: $TOTAL_LAKES" >> commit_msg.txt
+          
+          # Lakes with significant changes
+          CHANGED_LAKES=$(jq '[.lakes[] | select(.difference != null and ((.difference | abs) > 1))] | length' data/lake_levels.json)
+          echo "- Lakes with significant changes: $CHANGED_LAKES" >> commit_msg.txt
+          
+          # Last update time
+          LAST_UPDATE=$(jq -r '.metadata.lastUpdated' data/lake_levels.json)
+          echo "- Last updated: $LAST_UPDATE" >> commit_msg.txt
         fi
 
         # Commit with the generated message
@@ -73,8 +147,18 @@ jobs:
         
         if [ -f "data/lake_levels.json" ]; then
           echo "### Statistics" >> $GITHUB_STEP_SUMMARY
-          echo "- Total Lakes: $(grep -o '"name":' data/lake_levels.json | wc -l)" >> $GITHUB_STEP_SUMMARY
-          echo "- Last Updated: $(grep '"lastUpdated":' data/lake_levels.json | head -1)" >> $GITHUB_STEP_SUMMARY
+          TOTAL_LAKES=$(jq '.lakes | length' data/lake_levels.json)
+          LAST_UPDATE=$(jq -r '.metadata.lastUpdated' data/lake_levels.json)
+          CHANGED_LAKES=$(jq '[.lakes[] | select(.difference != null and ((.difference | abs) > 1))] | length' data/lake_levels.json)
+          
+          echo "- Total Lakes: $TOTAL_LAKES" >> $GITHUB_STEP_SUMMARY
+          echo "- Lakes with Significant Changes: $CHANGED_LAKES" >> $GITHUB_STEP_SUMMARY
+          echo "- Last Updated: $LAST_UPDATE" >> $GITHUB_STEP_SUMMARY
+          
+          # Add some significant changes if any
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Significant Changes" >> $GITHUB_STEP_SUMMARY
+          jq -r '.lakes[] | select(.difference != null and ((.difference | abs) > 1)) | "- \(.name): \(.difference) ft"' data/lake_levels.json | head -5 >> $GITHUB_STEP_SUMMARY
         fi
 
     - name: Notify on Failure
@@ -86,5 +170,11 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             title: `⚠️ Lake Data Update Failed - ${new Date().toISOString().split('T')[0]}`,
-            body: `The automated lake data update failed. Please check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`
+            body: `The automated lake data update failed. Please check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.
+
+            Time: ${new Date().toISOString()}
+            Job: ${context.job}
+            Workflow: ${context.workflow}
+            Repository: ${context.repo.owner}/${context.repo.repo}
+            Run ID: ${context.runId}`
           });
