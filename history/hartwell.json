@@ -1,0 +1,24 @@
+{
+  "lakeName": "Hartwell",
+  "state": "GA SC",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.365Z",
+    "fullPool": 660,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 657.69,
+    "highestLevel": 657.69,
+    "lowestLevel": 657.69,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 657.69,
+      "difference": -2.31,
+      "timestamp": "11/1/2024 7:00"
+    }
+  }
+}

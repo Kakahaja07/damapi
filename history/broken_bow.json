@@ -1,0 +1,24 @@
+{
+  "lakeName": "Broken Bow",
+  "state": "OK",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.212Z",
+    "fullPool": 602,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 589.13,
+    "highestLevel": 589.13,
+    "lowestLevel": 589.13,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 589.13,
+      "difference": -12.87,
+      "timestamp": "11/1/2024 10:05"
+    }
+  }
+}

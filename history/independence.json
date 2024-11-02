@@ -1,0 +1,24 @@
+{
+  "lakeName": "Independence",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.388Z",
+    "fullPool": 6,
+    "recordStartDate": "10/31/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 6944.89,
+    "highestLevel": 6944.89,
+    "lowestLevel": 6944.89,
+    "lastUpdated": "10/31/2024"
+  },
+  "readings": {
+    "10/31/2024": {
+      "currentLevel": 6944.89,
+      "difference": -2.95,
+      "timestamp": "10/31/2024 12:00"
+    }
+  }
+}

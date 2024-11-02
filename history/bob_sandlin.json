@@ -1,0 +1,24 @@
+{
+  "lakeName": "Bob Sandlin",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.201Z",
+    "fullPool": 337.5,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 336.36,
+    "highestLevel": 336.36,
+    "lowestLevel": 336.36,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 336.36,
+      "difference": -1.14,
+      "timestamp": "11/1/2024 10:05"
+    }
+  }
+}

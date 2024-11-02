@@ -1,0 +1,24 @@
+{
+  "lakeName": "Georgetown",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.333Z",
+    "fullPool": 791,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 779.51,
+    "highestLevel": 779.51,
+    "lowestLevel": 779.51,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 779.51,
+      "difference": -11.49,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "Ozarks",
+  "state": "MO",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.573Z",
+    "fullPool": 660,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 657.49,
+    "highestLevel": 657.49,
+    "lowestLevel": 657.49,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 657.49,
+      "difference": -2.51,
+      "timestamp": "11/1/2024 7:00"
+    }
+  }
+}

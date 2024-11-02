@@ -1,0 +1,24 @@
+{
+  "lakeName": "Jackson",
+  "state": "GA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.396Z",
+    "fullPool": 528,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 522.95,
+    "highestLevel": 522.95,
+    "lowestLevel": 522.95,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 522.95,
+      "difference": -5.05,
+      "timestamp": "11/1/2024 7:00"
+    }
+  }
+}

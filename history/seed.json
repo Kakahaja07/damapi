@@ -1,0 +1,24 @@
+{
+  "lakeName": "Seed",
+  "state": "GA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.664Z",
+    "fullPool": null,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 1750.99,
+    "highestLevel": 1750.99,
+    "lowestLevel": 1750.99,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 1750.99,
+      "difference": null,
+      "timestamp": "11/1/2024 7:00"
+    }
+  }
+}

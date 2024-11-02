@@ -1,0 +1,24 @@
+{
+  "lakeName": "Gaston",
+  "state": "NC",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.332Z",
+    "fullPool": 200,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 199.71,
+    "highestLevel": 199.71,
+    "lowestLevel": 199.71,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 199.71,
+      "difference": -0.29,
+      "timestamp": "11/1/2024 8:00"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "Tyler",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.761Z",
+    "fullPool": 375.5,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 373.98,
+    "highestLevel": 373.98,
+    "lowestLevel": 373.98,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 373.98,
+      "difference": -1.52,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

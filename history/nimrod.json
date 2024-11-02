@@ -1,0 +1,24 @@
+{
+  "lakeName": "Nimrod",
+  "state": "AR",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.542Z",
+    "fullPool": 342,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 336.44,
+    "highestLevel": 336.44,
+    "lowestLevel": 336.44,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 336.44,
+      "difference": -5.56,
+      "timestamp": "11/1/2024 10:34"
+    }
+  }
+}

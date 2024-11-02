@@ -1,0 +1,24 @@
+{
+  "lakeName": "Andrews",
+  "state": "AL",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.154Z",
+    "fullPool": 105,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 79.24,
+    "highestLevel": 79.24,
+    "lowestLevel": 79.24,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 79.24,
+      "difference": -25.76,
+      "timestamp": "11/2/2024 1:45"
+    }
+  }
+}

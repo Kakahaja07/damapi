@@ -1,0 +1,24 @@
+{
+  "lakeName": "Trinity",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.742Z",
+    "fullPool": null,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 2312.76,
+    "highestLevel": 2312.76,
+    "lowestLevel": 2312.76,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 2312.76,
+      "difference": null,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

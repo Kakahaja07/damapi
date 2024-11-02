@@ -1,0 +1,24 @@
+{
+  "lakeName": "Hudson",
+  "state": "OK",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.384Z",
+    "fullPool": 756,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 619.56,
+    "highestLevel": 619.56,
+    "lowestLevel": 619.56,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 619.56,
+      "difference": -136.44,
+      "timestamp": "11/2/2024 3:00"
+    }
+  }
+}

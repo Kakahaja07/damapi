@@ -1,0 +1,24 @@
+{
+  "lakeName": "Pleasant",
+  "state": "AZ",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.598Z",
+    "fullPool": 1,
+    "recordStartDate": "10/25/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 1664.23,
+    "highestLevel": 1664.23,
+    "lowestLevel": 1664.23,
+    "lastUpdated": "10/25/2024"
+  },
+  "readings": {
+    "10/25/2024": {
+      "currentLevel": 1664.23,
+      "difference": 4.23,
+      "timestamp": "10/25/2024 12:33"
+    }
+  }
+}

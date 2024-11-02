@@ -1,0 +1,24 @@
+{
+  "lakeName": "Navajo",
+  "state": "NM CO",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.529Z",
+    "fullPool": 6,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 6041.08,
+    "highestLevel": 6041.08,
+    "lowestLevel": 6041.08,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 6041.08,
+      "difference": -43.92,
+      "timestamp": "11/1/2024 12:00"
+    }
+  }
+}

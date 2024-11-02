@@ -1,0 +1,24 @@
+{
+  "lakeName": "Moss Creek",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.507Z",
+    "fullPool": 2,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 2331.63,
+    "highestLevel": 2331.63,
+    "lowestLevel": 2331.63,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 2331.63,
+      "difference": -5.37,
+      "timestamp": "11/2/2024 12:45"
+    }
+  }
+}

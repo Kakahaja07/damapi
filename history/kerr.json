@@ -1,0 +1,24 @@
+{
+  "lakeName": "Kerr",
+  "state": "VA NC",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.427Z",
+    "fullPool": 300,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 297.99,
+    "highestLevel": 297.99,
+    "lowestLevel": 297.99,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 297.99,
+      "difference": -2.01,
+      "timestamp": "11/2/2024 3:15"
+    }
+  }
+}

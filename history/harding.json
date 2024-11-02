@@ -1,0 +1,24 @@
+{
+  "lakeName": "Harding",
+  "state": "AL GA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.363Z",
+    "fullPool": 521,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 520.43,
+    "highestLevel": 520.43,
+    "lowestLevel": 520.43,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 520.43,
+      "difference": -0.57,
+      "timestamp": "11/1/2024 10:01"
+    }
+  }
+}

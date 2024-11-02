@@ -1,0 +1,24 @@
+{
+  "lakeName": "Catahoula",
+  "state": "LA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.240Z",
+    "fullPool": 28,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 27.92,
+    "highestLevel": 27.92,
+    "lowestLevel": 27.92,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 27.92,
+      "difference": -0.08,
+      "timestamp": "11/1/2024 10:05"
+    }
+  }
+}

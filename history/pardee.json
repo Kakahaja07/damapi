@@ -1,0 +1,24 @@
+{
+  "lakeName": "Pardee",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.578Z",
+    "fullPool": 563.21,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 540.09,
+    "highestLevel": 540.09,
+    "lowestLevel": 540.09,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 540.09,
+      "difference": -23.12,
+      "timestamp": "11/1/2024 10:00"
+    }
+  }
+}

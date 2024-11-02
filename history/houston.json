@@ -1,0 +1,24 @@
+{
+  "lakeName": "Houston",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.377Z",
+    "fullPool": 42.4,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 42.35,
+    "highestLevel": 42.35,
+    "lowestLevel": 42.35,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 42.35,
+      "difference": -0.05,
+      "timestamp": "11/2/2024 2:30"
+    }
+  }
+}

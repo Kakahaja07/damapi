@@ -1,0 +1,24 @@
+{
+  "lakeName": "Lay",
+  "state": "AL",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.444Z",
+    "fullPool": 396,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 395.67,
+    "highestLevel": 395.67,
+    "lowestLevel": 395.67,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 395.67,
+      "difference": -0.33,
+      "timestamp": "11/2/2024 2:00"
+    }
+  }
+}

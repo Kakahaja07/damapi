@@ -1,0 +1,24 @@
+{
+  "lakeName": "Millerton",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.491Z",
+    "fullPool": null,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 501.22,
+    "highestLevel": 501.22,
+    "lowestLevel": 501.22,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 501.22,
+      "difference": null,
+      "timestamp": "11/1/2024 11:00"
+    }
+  }
+}

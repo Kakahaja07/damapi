@@ -1,0 +1,24 @@
+{
+  "lakeName": "Ashokan",
+  "state": "NY",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.171Z",
+    "fullPool": 585,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 582.28,
+    "highestLevel": 582.28,
+    "lowestLevel": 582.28,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 582.28,
+      "difference": -2.72,
+      "timestamp": "11/2/2024 3:15"
+    }
+  }
+}

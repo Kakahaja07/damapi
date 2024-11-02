@@ -1,0 +1,24 @@
+{
+  "lakeName": "Ice House",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.387Z",
+    "fullPool": 5,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 5430.38,
+    "highestLevel": 5430.38,
+    "lowestLevel": 5430.38,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 5430.38,
+      "difference": 0.23,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

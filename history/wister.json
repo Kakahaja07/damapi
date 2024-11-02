@@ -1,0 +1,24 @@
+{
+  "lakeName": "Wister",
+  "state": "OK",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.803Z",
+    "fullPool": 478,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 472.23,
+    "highestLevel": 472.23,
+    "lowestLevel": 472.23,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 472.23,
+      "difference": -5.77,
+      "timestamp": "11/2/2024 2:30"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "McClure",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.475Z",
+    "fullPool": 741.79,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 804.89,
+    "highestLevel": 804.89,
+    "lowestLevel": 804.89,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 804.89,
+      "difference": 63.1,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

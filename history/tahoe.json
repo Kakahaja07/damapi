@@ -1,0 +1,24 @@
+{
+  "lakeName": "Tahoe",
+  "state": "CA NV",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.709Z",
+    "fullPool": 6,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 6226.92,
+    "highestLevel": 6226.92,
+    "lowestLevel": 6226.92,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 6226.92,
+      "difference": 1.92,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

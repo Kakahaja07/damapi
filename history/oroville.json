@@ -1,0 +1,24 @@
+{
+  "lakeName": "Oroville",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.567Z",
+    "fullPool": 900,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 763.4,
+    "highestLevel": 763.4,
+    "lowestLevel": 763.4,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 763.4,
+      "difference": -136.6,
+      "timestamp": "11/2/2024 1:00"
+    }
+  }
+}

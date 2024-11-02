@@ -1,0 +1,24 @@
+{
+  "lakeName": "Success",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.705Z",
+    "fullPool": 582.75,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 602.69,
+    "highestLevel": 602.69,
+    "lowestLevel": 602.69,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 602.69,
+      "difference": 19.94,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

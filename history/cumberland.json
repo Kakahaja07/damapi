@@ -1,0 +1,24 @@
+{
+  "lakeName": "Cumberland",
+  "state": "KY",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.282Z",
+    "fullPool": 723,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 692.93,
+    "highestLevel": 692.93,
+    "lowestLevel": 692.93,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 692.93,
+      "difference": -30.07,
+      "timestamp": "11/2/2024 12:45"
+    }
+  }
+}

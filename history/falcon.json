@@ -1,0 +1,24 @@
+{
+  "lakeName": "Falcon",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.311Z",
+    "fullPool": 301.2,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 255.68,
+    "highestLevel": 255.68,
+    "lowestLevel": 255.68,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 255.68,
+      "difference": -45.52,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

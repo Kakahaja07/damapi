@@ -1,0 +1,24 @@
+{
+  "lakeName": "Red Bluff",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.623Z",
+    "fullPool": 2,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 2811.41,
+    "highestLevel": 2811.41,
+    "lowestLevel": 2811.41,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 2811.41,
+      "difference": -15.72,
+      "timestamp": "11/2/2024 2:15"
+    }
+  }
+}

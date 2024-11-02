@@ -1,0 +1,24 @@
+{
+  "lakeName": "Flathead",
+  "state": "MT",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.318Z",
+    "fullPool": 2,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 2891.14,
+    "highestLevel": 2891.14,
+    "lowestLevel": 2891.14,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 2891.14,
+      "difference": -1.86,
+      "timestamp": "11/2/2024 1:30"
+    }
+  }
+}

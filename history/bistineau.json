@@ -1,0 +1,24 @@
+{
+  "lakeName": "Bistineau",
+  "state": "LA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.189Z",
+    "fullPool": 141,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 133.43,
+    "highestLevel": 133.43,
+    "lowestLevel": 133.43,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 133.43,
+      "difference": -7.57,
+      "timestamp": "11/2/2024 2:00"
+    }
+  }
+}

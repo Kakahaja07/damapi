@@ -1,0 +1,24 @@
+{
+  "lakeName": "Caddo",
+  "state": "LA TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.223Z",
+    "fullPool": 168.5,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 169,
+    "highestLevel": 169,
+    "lowestLevel": 169,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 169,
+      "difference": 0.5,
+      "timestamp": "11/1/2024 6:00"
+    }
+  }
+}

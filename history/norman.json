@@ -1,0 +1,24 @@
+{
+  "lakeName": "Norman",
+  "state": "NC",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.548Z",
+    "fullPool": 100,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 96.91,
+    "highestLevel": 96.91,
+    "lowestLevel": 96.91,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 96.91,
+      "difference": -3.09,
+      "timestamp": "11/2/2024 1:00"
+    }
+  }
+}

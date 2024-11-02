@@ -1,0 +1,24 @@
+{
+  "lakeName": "Texana",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.725Z",
+    "fullPool": 44,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 40.83,
+    "highestLevel": 40.83,
+    "lowestLevel": 40.83,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 40.83,
+      "difference": -3.17,
+      "timestamp": "11/2/2024 1:00"
+    }
+  }
+}

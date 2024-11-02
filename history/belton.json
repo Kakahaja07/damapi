@@ -1,0 +1,24 @@
+{
+  "lakeName": "Belton",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.185Z",
+    "fullPool": 594,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 591.77,
+    "highestLevel": 591.77,
+    "lowestLevel": 591.77,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 591.77,
+      "difference": -2.23,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

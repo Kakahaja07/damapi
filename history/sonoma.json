@@ -1,0 +1,24 @@
+{
+  "lakeName": "Sonoma",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.683Z",
+    "fullPool": 488,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 442.91,
+    "highestLevel": 442.91,
+    "lowestLevel": 442.91,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 442.91,
+      "difference": -45.09,
+      "timestamp": "11/2/2024 12:15"
+    }
+  }
+}

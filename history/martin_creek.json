@@ -1,0 +1,24 @@
+{
+  "lakeName": "Martin Creek",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.472Z",
+    "fullPool": 306,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 303.7,
+    "highestLevel": 303.7,
+    "lowestLevel": 303.7,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 303.7,
+      "difference": -2.3,
+      "timestamp": "11/2/2024 1:30"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "Sinclair",
+  "state": "GA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.675Z",
+    "fullPool": 340,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 338.32,
+    "highestLevel": 338.32,
+    "lowestLevel": 338.32,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 338.32,
+      "difference": -1.68,
+      "timestamp": "11/1/2024 7:00"
+    }
+  }
+}

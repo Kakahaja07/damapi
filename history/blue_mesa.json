@@ -1,0 +1,24 @@
+{
+  "lakeName": "Blue Mesa",
+  "state": "CO",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.197Z",
+    "fullPool": 7,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 7481.8,
+    "highestLevel": 7481.8,
+    "lowestLevel": 7481.8,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 7481.8,
+      "difference": -37.2,
+      "timestamp": "11/1/2024 12:00"
+    }
+  }
+}

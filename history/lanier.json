@@ -1,0 +1,24 @@
+{
+  "lakeName": "Lanier",
+  "state": "GA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.441Z",
+    "fullPool": 1,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 1068.24,
+    "highestLevel": 1068.24,
+    "lowestLevel": 1068.24,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 1068.24,
+      "difference": -2.76,
+      "timestamp": "11/2/2024 3:15"
+    }
+  }
+}

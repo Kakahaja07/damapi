@@ -1,0 +1,24 @@
+{
+  "lakeName": "Benbrook",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.186Z",
+    "fullPool": 694,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 690.49,
+    "highestLevel": 690.49,
+    "lowestLevel": 690.49,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 690.49,
+      "difference": -3.51,
+      "timestamp": "11/2/2024 3:00"
+    }
+  }
+}

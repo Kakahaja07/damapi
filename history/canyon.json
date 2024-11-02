@@ -1,0 +1,24 @@
+{
+  "lakeName": "Canyon",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.231Z",
+    "fullPool": 909,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 882.32,
+    "highestLevel": 882.32,
+    "lowestLevel": 882.32,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 882.32,
+      "difference": -26.68,
+      "timestamp": "11/2/2024 12:15"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "Eastman",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.303Z",
+    "fullPool": 587,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 533.84,
+    "highestLevel": 533.84,
+    "lowestLevel": 533.84,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 533.84,
+      "difference": -53.16,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

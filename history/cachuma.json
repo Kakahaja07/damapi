@@ -1,0 +1,24 @@
+{
+  "lakeName": "Cachuma",
+  "state": "CA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.222Z",
+    "fullPool": 753,
+    "recordStartDate": "10/31/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 747.58,
+    "highestLevel": 747.58,
+    "lowestLevel": 747.58,
+    "lastUpdated": "10/31/2024"
+  },
+  "readings": {
+    "10/31/2024": {
+      "currentLevel": 747.58,
+      "difference": -5.42,
+      "timestamp": "10/31/2024 12:00"
+    }
+  }
+}

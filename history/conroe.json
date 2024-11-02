@@ -1,0 +1,24 @@
+{
+  "lakeName": "Conroe",
+  "state": "TX",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.277Z",
+    "fullPool": 201,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 199.58,
+    "highestLevel": 199.58,
+    "lowestLevel": 199.58,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 199.58,
+      "difference": -1.42,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "Douglas",
+  "state": "TN",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.297Z",
+    "fullPool": 990,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 969.14,
+    "highestLevel": 969.14,
+    "lowestLevel": 969.14,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 969.14,
+      "difference": -20.86,
+      "timestamp": "11/2/2024 3:00"
+    }
+  }
+}

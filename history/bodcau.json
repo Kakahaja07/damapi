@@ -1,0 +1,24 @@
+{
+  "lakeName": "Bodcau",
+  "state": "LA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.202Z",
+    "fullPool": 170,
+    "recordStartDate": "11/2/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 158.54,
+    "highestLevel": 158.54,
+    "lowestLevel": 158.54,
+    "lastUpdated": "11/2/2024"
+  },
+  "readings": {
+    "11/2/2024": {
+      "currentLevel": 158.54,
+      "difference": -11.46,
+      "timestamp": "11/2/2024 12:00"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lakeName": "Cross",
+  "state": "LA",
+  "metadata": {
+    "created": "2024-11-02T08:32:49.281Z",
+    "fullPool": 171,
+    "recordStartDate": "11/1/2024",
+    "dataSource": "https://www.lakelevels.info/"
+  },
+  "statistics": {
+    "recordCount": 1,
+    "averageLevel": 169.18,
+    "highestLevel": 169.18,
+    "lowestLevel": 169.18,
+    "lastUpdated": "11/1/2024"
+  },
+  "readings": {
+    "11/1/2024": {
+      "currentLevel": 169.18,
+      "difference": -1.82,
+      "timestamp": "11/1/2024 10:05"
+    }
+  }
+}
