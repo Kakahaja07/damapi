@@ -48,7 +48,7 @@ jobs:
         mkdir -p data history
 
         # Run the update script
-        node src/updateLakeData.js
+        node src/lakeScraper.js
       env:
         NODE_ENV: production
         # Add any other environment variables needed for the script
