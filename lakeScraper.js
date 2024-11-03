@@ -40,7 +40,7 @@ class LakeDataUpdater {
             .replace(/(^_+|_+$)/g, '');
     }
 
-    // Enhanced number parsing function
+    // Enhanced number parsing function with support for 4+ digit numbers
     parseNumber(value) {
         if (!value) return null;
         
@@ -56,11 +56,18 @@ class LakeDataUpdater {
         }
 
         // Convert to number
-        const number = parseFloat(cleanValue);
+        let number = parseFloat(cleanValue);
         
         // Validate the result
         if (isNaN(number) || !isFinite(number)) {
             return null;
+        }
+
+        // Handle numbers that should be in thousands (for full pool values)
+        // If the number is less than 1000 and appears to be a full pool value
+        // multiply by 1000 to get the actual elevation
+        if (number < 1000 && cleanValue.length <= 3) {
+            number *= 1000;
         }
 
         return number;
