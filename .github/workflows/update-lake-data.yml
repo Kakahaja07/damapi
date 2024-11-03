@@ -2,8 +2,7 @@ name: Update Lake Data
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
-    - cron: '0 6 * * *'  # Runs at 06:00 UTC every day
+    - cron: '0 */4 * * *'  # Runs every 4 hours starting at 00:00 UTC
   workflow_dispatch:      # Allows manual trigger
   push:
     paths:
@@ -28,23 +27,55 @@ jobs:
         git config user.name 'Kakahaja07'
         git config user.email 'kakahaja07@gmail.com'
 
-    - name: Check for changes
-      id: check_changes
+    - name: Check Current Data
+      id: check_current
       run: |
-        git add -A
-        git diff --cached --quiet || echo "changes=true" >> $GITHUB_OUTPUT
+        if [ -f "data/lake_levels.json" ]; then
+          CURRENT_DATA=$(cat data/lake_levels.json)
+          echo "current_data=$CURRENT_DATA" >> $GITHUB_ENV
+        fi
+
+    - name: Run Lake Data Update
+      id: update_data
+      run: |
+        node lakeScraper.js
+        
+        if [ -f "data/lake_levels.json" ]; then
+          NEW_DATA=$(cat data/lake_levels.json)
+          
+          # Compare metadata.lastUpdated timestamps
+          OLD_TIMESTAMP=$(echo "${{ env.current_data }}" | jq -r '.metadata.lastUpdated')
+          NEW_TIMESTAMP=$(echo "$NEW_DATA" | jq -r '.metadata.lastUpdated')
+          
+          if [ "$OLD_TIMESTAMP" = "$NEW_TIMESTAMP" ]; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            echo "No new data available. Skipping update."
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "New data detected. Proceeding with update."
+          fi
+        else
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Initial data creation."
+        fi
 
     - name: Create Summary
       run: |
         echo "## Lake Data Update Summary" >> $GITHUB_STEP_SUMMARY
         echo "🕒 Update Time: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
         
+        if [ "${{ steps.update_data.outputs.no_changes }}" = "true" ]; then
+          echo "ℹ️ No new data available - skipped update" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ New data detected and processed" >> $GITHUB_STEP_SUMMARY
+        fi
+        
         # List all JSON files
         echo "### JSON Files in Repository:" >> $GITHUB_STEP_SUMMARY
         find . -name "*.json" -type f >> $GITHUB_STEP_SUMMARY
 
     - name: Commit and push if changed
-      if: steps.check_changes.outputs.changes == 'true'
+      if: steps.update_data.outputs.changes == 'true'
       run: |
         # Get current date for commit message
         DATE=$(date '+%Y-%m-%d')
@@ -55,7 +86,8 @@ jobs:
         echo "Modified files:" >> commit_msg.txt
         git diff --cached --name-status >> commit_msg.txt
 
-        # Commit and push
+        # Stage and commit changes
+        git add data/ history/
         git commit -F commit_msg.txt
         git push
 
