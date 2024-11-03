@@ -31,8 +31,8 @@ jobs:
       id: check_current
       run: |
         if [ -f "data/lake_levels.json" ]; then
-          CURRENT_DATA=$(cat data/lake_levels.json)
-          echo "current_data=$CURRENT_DATA" >> $GITHUB_ENV
+          CURRENT_TIMESTAMP=$(jq -r '.metadata.lastUpdated' data/lake_levels.json || echo "")
+          echo "current_timestamp=$CURRENT_TIMESTAMP" >> $GITHUB_OUTPUT
         fi
 
     - name: Run Lake Data Update
@@ -41,13 +41,9 @@ jobs:
         node lakeScraper.js
         
         if [ -f "data/lake_levels.json" ]; then
-          NEW_DATA=$(cat data/lake_levels.json)
+          NEW_TIMESTAMP=$(jq -r '.metadata.lastUpdated' data/lake_levels.json || echo "")
           
-          # Compare metadata.lastUpdated timestamps
-          OLD_TIMESTAMP=$(echo "${{ env.current_data }}" | jq -r '.metadata.lastUpdated')
-          NEW_TIMESTAMP=$(echo "$NEW_DATA" | jq -r '.metadata.lastUpdated')
-          
-          if [ "$OLD_TIMESTAMP" = "$NEW_TIMESTAMP" ]; then
+          if [ "${{ steps.check_current.outputs.current_timestamp }}" = "$NEW_TIMESTAMP" ]; then
             echo "no_changes=true" >> $GITHUB_OUTPUT
             echo "No new data available. Skipping update."
           else
