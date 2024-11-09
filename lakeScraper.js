@@ -63,13 +63,6 @@ class LakeDataUpdater {
             return null;
         }
 
-        // Handle numbers that should be in thousands (for full pool values)
-        // If the number is less than 1000 and appears to be a full pool value
-        // multiply by 1000 to get the actual elevation
-        if (number < 1000 && cleanValue.length <= 3) {
-            number *= 1000;
-        }
-
         return number;
     }
 
@@ -90,7 +83,8 @@ class LakeDataUpdater {
                     state: lake.state,
                     metadata: {
                         created: today,
-                        fullPool: lake.fullPool,
+                        fullPool: lake.fullPool || null,
+                        recordStartDate: today.split('T')[0].replace(/-/g, '/'),
                         dataSource: this.baseUrl
                     },
                     readings: {}
@@ -117,6 +111,11 @@ class LakeDataUpdater {
                     lowestLevel: Math.min(...levels),
                     lastUpdated: lake.lastUpdated.date
                 };
+            }
+
+            // Update fullPool if it exists in lake data
+            if (lake.fullPool !== null) {
+                historyData.metadata.fullPool = lake.fullPool;
             }
 
             // Write updated history
