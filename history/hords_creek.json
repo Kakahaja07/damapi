@@ -3,14 +3,14 @@
   "state": "TX",
   "metadata": {
     "created": "2024-11-02T08:32:49.376Z",
-    "fullPool": 1,
+    "fullPool": 1900,
     "recordStartDate": "11/2/2024",
     "dataSource": "https://www.lakelevels.info/"
   },
   "statistics": {
     "recordCount": 7,
-    "averageLevel": 1886.3,
-    "highestLevel": 1892.09,
+    "averageLevel": 1886.31,
+    "highestLevel": 1892.16,
     "lowestLevel": 1885.29,
     "lastUpdated": "11/8/2024"
   },
@@ -46,9 +46,9 @@
       "timestamp": "11/7/2024 8:30"
     },
     "11/8/2024": {
-      "currentLevel": 1892.09,
-      "difference": -7.91,
-      "timestamp": "11/8/2024 8:30"
+      "currentLevel": 1892.16,
+      "difference": -7.84,
+      "timestamp": "11/8/2024 10:30"
     }
   }
 }
