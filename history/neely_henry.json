@@ -8,11 +8,11 @@
     "dataSource": "https://www.lakelevels.info/"
   },
   "statistics": {
-    "recordCount": 97,
-    "averageLevel": 506.552886597938,
+    "recordCount": 98,
+    "averageLevel": 506.54816326530596,
     "highestLevel": 507.24,
-    "lowestLevel": 506.1,
-    "lastUpdated": "2/14/2025"
+    "lowestLevel": 506.09,
+    "lastUpdated": "2/15/2025"
   },
   "readings": {
     "11/2/2024": {
@@ -499,6 +499,11 @@
       "currentLevel": 506.11,
       "difference": -1.89,
       "timestamp": "2/14/2025 6:00"
+    },
+    "2/15/2025": {
+      "currentLevel": 506.09,
+      "difference": -1.91,
+      "timestamp": "2/15/2025 12:00"
     }
   }
 }
