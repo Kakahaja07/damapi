@@ -3,13 +3,13 @@
   "state": "TN",
   "metadata": {
     "created": "2024-11-02T08:32:49.255Z",
-    "fullPool": 1073,
+    "fullPool": 280,
     "recordStartDate": "11/2/2024",
     "dataSource": "https://www.lakelevels.info/"
   },
   "statistics": {
-    "recordCount": 285,
-    "averageLevel": 372.9226315789476,
+    "recordCount": 286,
+    "averageLevel": 372.5953496503499,
     "highestLevel": 1067.2,
     "lowestLevel": 278.77,
     "lastUpdated": "8/24/2025"
@@ -1436,9 +1436,14 @@
       "timestamp": "8/23/2025 11:00"
     },
     "8/24/2025": {
-      "currentLevel": 1063.61,
-      "difference": -9.39,
-      "timestamp": "8/24/2025 12:00"
+      "currentLevel": 279.46,
+      "difference": -0.54,
+      "timestamp": "8/24/2025 10:45"
+    },
+    "8/25/2025": {
+      "currentLevel": 1063.47,
+      "difference": -9.53,
+      "timestamp": "8/25/2025 1:00"
     }
   }
 }

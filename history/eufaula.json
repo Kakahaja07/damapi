@@ -3,16 +3,16 @@
   "state": "OK",
   "metadata": {
     "created": "2024-11-02T08:32:49.309Z",
-    "fullPool": 585,
+    "fullPool": 188,
     "recordStartDate": "11/2/2024",
     "dataSource": "https://www.lakelevels.info/"
   },
   "statistics": {
-    "recordCount": 287,
-    "averageLevel": 415.88693379790925,
+    "recordCount": 288,
+    "averageLevel": 415.10305555555544,
     "highestLevel": 596.18,
     "lowestLevel": 187.89,
-    "lastUpdated": "8/24/2025"
+    "lastUpdated": "8/25/2025"
   },
   "readings": {
     "11/2/2024": {
@@ -1449,6 +1449,11 @@
       "currentLevel": 584.1,
       "difference": -0.9,
       "timestamp": "8/24/2025 10:00"
+    },
+    "8/25/2025": {
+      "currentLevel": 190.13,
+      "difference": 2.13,
+      "timestamp": "8/25/2025 12:00"
     }
   }
 }
