@@ -3,13 +3,13 @@
   "state": "GA",
   "metadata": {
     "created": "2024-11-02T08:32:49.611Z",
-    "fullPool": null,
+    "fullPool": 1689,
     "recordStartDate": "11/1/2024",
     "dataSource": "https://www.lakelevels.info/"
   },
   "statistics": {
     "recordCount": 314,
-    "averageLevel": 1680.852292993631,
+    "averageLevel": 1680.8522292993634,
     "highestLevel": 1689.27,
     "lowestLevel": 168.7,
     "lastUpdated": "9/22/2025"
@@ -1581,9 +1581,9 @@
       "timestamp": "9/21/2025 11:00"
     },
     "9/22/2025": {
-      "currentLevel": 1688.18,
-      "difference": null,
-      "timestamp": "9/22/2025 7:00"
+      "currentLevel": 1688.16,
+      "difference": -0.84,
+      "timestamp": "9/22/2025 11:00"
     }
   }
 }
