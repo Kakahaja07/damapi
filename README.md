@@ -1,6 +1,6 @@
-# 🌊 DamAPI
+# 🌊 DamAPI (`usa-dam-data`)
 
-> A modern, developer-first Node.js SDK and REST API for accessing publicly available United States dam, reservoir, and water infrastructure data.
+> A modern, developer-first Node.js SDK and database for accessing publicly available United States dam, lake, reservoir, and water level data for free.
 
 [![CI](https://github.com/Kakahaja07/damapi/actions/workflows/ci.yml/badge.svg)](https://github.com/Kakahaja07/damapi/actions)
 [![License](https://img.shields.io/github/license/Kakahaja07/damapi)](LICENSE)
@@ -8,48 +8,46 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Supported-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Open Source](https://img.shields.io/badge/Open%20Source-❤️-success)]()
 
-A lightweight SDK designed to make U.S. dam and reservoir data easy to access, search, analyze, and integrate into applications.
+A lightweight Node.js SDK designed to make U.S. dam and reservoir data easy to access, search, analyze, and integrate into applications.
 
 Whether you're building dashboards, environmental tools, GIS applications, AI agents, research software, or monitoring systems, DamAPI provides a clean developer experience over publicly available datasets.
+
+🌐 **Website / Docs**: [https://kakahaja07.github.io/damapi/](https://kakahaja07.github.io/damapi/)
 
 ---
 
 ## ✨ Features
 
-- 🇺🇸 United States dam database
-- 🌊 Reservoir information
-- 📊 Water level data
-- 💧 Storage & capacity information
-- 📍 Search by state
-- 🗺 Search by river
-- 🔎 Search by dam name
-- 📈 Historical datasets *(coming soon)*
-- 📉 Water level trends *(coming soon)*
-- ⚡ Fast JSON responses
-- 📦 TypeScript support
-- 🧩 Developer-friendly API
-- 🚀 Zero configuration
-- 🛠 REST API + SDK
-- ❤️ Open Source
+- 🇺🇸 349+ United States dams & lakes database
+- 🌊 Real-time water level data & full pool measurements
+- 📊 Storage & level differences
+- 📍 Search & filter by state (e.g. `Texas`, `TX`, `California`, `CA`)
+- 🔎 Fuzzy search by dam or lake name
+- 📈 Historical datasets for individual lakes
+- 📊 Dataset analytics & summary statistics (`getStats()`)
+- 🔄 On-demand live scraper & auto updates (`fetchLive()`)
+- 📦 Full TypeScript support (`index.d.ts`)
+- ⚡ Fast, zero-config JSON responses
+- ❤️ Open Source & Free
 
 ---
 
 # Installation
 
 ```bash
-npm install damapi
+npm install usa-dam-data
 ```
 
 or
 
 ```bash
-yarn add damapi
+yarn add usa-dam-data
 ```
 
 or
 
 ```bash
-pnpm add damapi
+pnpm add usa-dam-data
 ```
 
 ---
@@ -64,13 +62,26 @@ pnpm add damapi
 # Quick Start
 
 ```javascript
-import { DamAPI } from "damapi";
+const { DamAPI } = require("usa-dam-data");
 
 const api = new DamAPI();
 
-const dams = await api.getDams();
+// Get all dams
+const dams = api.getDams();
+console.log(`Loaded ${dams.length} dams!`);
 
-console.log(dams);
+// Search dams in Texas
+const texasLakes = api.getByState("Texas");
+console.log(texasLakes);
+```
+
+### ESM / TypeScript import
+
+```typescript
+import { DamAPI, Dam } from "usa-dam-data";
+
+const api = new DamAPI();
+const dams: Dam[] = api.getDams();
 ```
 
 ---
@@ -80,319 +91,156 @@ console.log(dams);
 ## Get All Dams
 
 ```javascript
-const dams = await api.getDams();
+const dams = api.getDams();
 ```
-
----
 
 ## Search by State
 
 ```javascript
-const texas = await api.getByState("Texas");
+// Accepts full state name or 2-letter postal code
+const texas = api.getByState("Texas");
+const california = api.getByState("CA");
 ```
-
----
-
-## Search by River
-
-```javascript
-const colorado = await api.getByRiver("Colorado River");
-```
-
----
 
 ## Search by Name
 
 ```javascript
-const dam = await api.search("Hoover");
+const matches = api.search("Alamo");
 ```
-
----
 
 ## Get Dam by ID
 
 ```javascript
-const dam = await api.get("08014500");
+const dam = api.get("alamo");
+```
+
+## Get Dataset Statistics
+
+```javascript
+const stats = api.getStats();
+console.log(stats);
+/*
+{
+  totalDams: 349,
+  totalLakes: 349,
+  statesCovered: [ 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', ... ],
+  totalStates: 36,
+  averageLevel: 985.42,
+  highestLevel: 6710.2,
+  lowestLevel: -12.4,
+  lastUpdated: '2026-07-29T06:28:23.430Z'
+}
+*/
+```
+
+## Get Historical Data for a Lake
+
+```javascript
+const history = api.getHistory("alamo");
+console.log(history.readings);
+```
+
+## Live Fetch / Update Data
+
+```javascript
+// Fetch latest live levels directly from upstream data source
+await api.fetchLive();
 ```
 
 ---
 
-# Example Response
+# Example Response Object
 
 ```json
 {
-  "id": "08014500",
-  "name": "Hoover Dam",
-  "state": "Nevada",
-  "river": "Colorado River",
-  "latitude": 36.0155,
-  "longitude": -114.7378,
-  "owner": "Bureau of Reclamation",
+  "id": "alamo",
+  "name": "Alamo",
+  "state": "ARIZONA",
+  "stateCode": "AZ",
+  "river": null,
+  "latitude": null,
+  "longitude": null,
+  "owner": "USACE / Local Water Authority",
+  "currentLevel": 1100.6,
+  "fullPool": 1129,
+  "difference": -28.4,
   "waterLevel": {
-    "value": 1067.35,
+    "value": 1100.6,
     "unit": "ft"
   },
-  "storage": {
-    "value": 8234567,
-    "unit": "acre-ft"
+  "fullPoolLevel": {
+    "value": 1129,
+    "unit": "ft"
   },
-  "updatedAt": "2026-07-29T12:00:00Z"
+  "lastUpdated": {
+    "date": "7/28/2026",
+    "time": "9:00"
+  },
+  "updatedAt": "2026-07-29T06:28:23.430Z"
 }
 ```
 
 ---
 
-# API
+# API Reference
 
-## getDams()
+### `new DamAPI(options?)`
+Initializes the SDK. Options include `{ dataFile?, historyDir?, autoLoad? }`.
 
-Returns all dams.
+### `getDams(filter?)` / `getLakes(filter?)`
+Returns array of dams. Supports filtering: `{ state, sort, order, limit }`.
 
-```javascript
-await api.getDams();
-```
+### `get(idOrName)`
+Returns a single dam object by sanitized ID or exact name.
 
----
+### `search(query)`
+Fuzzy search across dam names.
 
-## get(id)
+### `getByState(state)`
+Filters dams by state name or 2-letter postal code.
 
-Returns a single dam.
+### `getByRiver(river)`
+Filters dams by river or river keyword.
 
-```javascript
-await api.get("08014500");
-```
+### `getStats()`
+Returns analytics summary including state counts, average water level, highest/lowest levels.
 
----
+### `getHistory(lakeNameOrId)`
+Loads historical readings for a specific dam/lake.
 
-## search(keyword)
-
-Search by name.
-
-```javascript
-await api.search("Hoover");
-```
-
----
-
-## getByState(state)
-
-```javascript
-await api.getByState("California");
-```
+### `fetchLive()`
+Scrapes real-time water level data from source and updates local storage.
 
 ---
 
-## getByRiver(river)
+# Development & Testing
 
-```javascript
-await api.getByRiver("Mississippi River");
+```bash
+# Clone the repository
+git clone https://github.com/Kakahaja07/damapi.git
+
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Run live data updater
+npm run update-data
 ```
-
----
-
-# Project Structure
-
-```
-damapi
-│
-├── src/
-│   ├── api/
-│   ├── parser/
-│   ├── services/
-│   ├── utils/
-│   ├── types/
-│   └── index.ts
-│
-├── data/
-│
-├── examples/
-│
-├── scripts/
-│
-├── tests/
-│
-├── docs/
-│
-├── package.json
-│
-├── README.md
-│
-└── LICENSE
-```
-
----
-
-# Data Model
-
-Every dam includes data similar to:
-
-| Field | Description |
-|--------|-------------|
-| id | Unique Identifier |
-| name | Dam Name |
-| state | State |
-| river | River |
-| latitude | Latitude |
-| longitude | Longitude |
-| owner | Managing Organization |
-| waterLevel | Current Water Level |
-| storage | Reservoir Storage |
-| updatedAt | Last Update |
 
 ---
 
 # Roadmap
 
-## Core
-
-- [x] Dam database
-- [x] Search API
-- [x] TypeScript SDK
-- [ ] REST API
-- [ ] Historical water levels
-- [ ] Daily snapshots
-- [ ] Water storage history
-- [ ] Reservoir statistics
-- [ ] State summaries
-- [ ] River summaries
-
-### CLI
-
-- [ ] Search command
-- [ ] Export JSON
-- [ ] Export CSV
-- [ ] Daily updater
-
-### Developer
-
-- [ ] GraphQL API
-- [ ] Python SDK
-- [ ] Go SDK
-- [ ] Rust SDK
-- [ ] Java SDK
-
----
-
-# Why DamAPI?
-
-Government datasets often provide valuable information but can be difficult to consume due to inconsistent formats, multiple data sources, or limited developer tooling.
-
-DamAPI simplifies access by providing:
-
-- Clean JSON responses
-- Consistent field names
-- TypeScript support
-- Easy search methods
-- Ready-to-use SDK
-- Developer-focused documentation
-
----
-
-# Use Cases
-
-Perfect for building:
-
-- Environmental dashboards
-- AI Agents
-- GIS Applications
-- Water Monitoring Systems
-- Research Projects
-- Government Dashboards
-- Educational Projects
-- Data Visualization
-- Flood Monitoring
-- Climate Analysis
-
----
-
-# Performance Goals
-
-- Lightweight package
-- Fast searches
-- Cached responses
-- Low memory usage
-- Tree-shakeable modules
-
----
-
-# Contributing
-
-Contributions are always welcome.
-
-1. Fork the repository
-
-```bash
-git fork
-```
-
-2. Create a branch
-
-```bash
-git checkout -b feature/amazing-feature
-```
-
-3. Commit changes
-
-```bash
-git commit -m "Add amazing feature"
-```
-
-4. Push branch
-
-```bash
-git push origin feature/amazing-feature
-```
-
-5. Open a Pull Request
-
----
-
-# Development
-
-Clone the repository.
-
-```bash
-git clone https://github.com/Kakahaja07/damapi.git
-```
-
-Install dependencies.
-
-```bash
-npm install
-```
-
-Run development mode.
-
-```bash
-npm run dev
-```
-
-Run tests.
-
-```bash
-npm test
-```
-
-Build.
-
-```bash
-npm run build
-```
-
----
-
-# Documentation
-
-Future documentation will include:
-
-- SDK Guide
-- REST API
-- CLI Guide
-- TypeScript Examples
-- Advanced Search
-- Filtering
-- Pagination
-- Error Handling
+- [x] Dam database & JSON storage
+- [x] Search & Filter API
+- [x] TypeScript SDK definitions
+- [x] Historical water level readings
+- [x] Dataset statistics & analytics
+- [ ] REST API server endpoint
+- [ ] Daily automated GitHub Action workflow snapshots
+- [ ] CLI tools (`npx usa-dam-data search <name>`)
 
 ---
 
@@ -400,54 +248,17 @@ Future documentation will include:
 
 DamAPI is built using publicly available data from United States government agencies and other public resources where permitted.
 
-Potential data providers include:
-
-- U.S. Army Corps of Engineers (USACE)
-- Bureau of Reclamation
-- USGS
-- NOAA
-- FEMA
-- State Water Agencies
-
-Each source remains the property of its respective owner.
-
 ---
 
 # Disclaimer
 
-DamAPI is an independent open-source project.
-
-It is **not affiliated with, endorsed by, sponsored by, or associated with** the U.S. Army Corps of Engineers (USACE), Bureau of Reclamation, USGS, NOAA, FEMA, any state agency, or any other government organization.
-
-The project aggregates and normalizes publicly available information solely for educational, research, and software development purposes.
-
-Users are responsible for complying with the terms of service, licensing requirements, and usage policies of all upstream data providers.
-
-If a data provider requests corrections or removal of content, the project will make reasonable efforts to comply.
+DamAPI is an independent open-source project. It is **not affiliated with, endorsed by, sponsored by, or associated with** any government organization.
 
 ---
 
 # License
 
-MIT License
-
-Copyright (c) 2026 Prashant Sharma
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
-
-See the [LICENSE](LICENSE) file for the full license text.
-
----
-
-# Support
-
-If you find DamAPI useful, please consider:
-
-- ⭐ Starring the repository
-- 🐛 Reporting bugs
-- 💡 Suggesting new features
-- 🤝 Contributing code
-- 📢 Sharing the project
+MIT License. See [LICENSE](LICENSE) file.
 
 ---
 
@@ -456,6 +267,7 @@ If you find DamAPI useful, please consider:
 **Prashant Sharma**
 
 - GitHub: https://github.com/Kakahaja07
+- Website: https://kakahaja07.github.io/damapi/
 
 ---
 

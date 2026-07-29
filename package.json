@@ -1,6 +1,59 @@
 {
+  "name": "usa-dam-data",
+  "version": "1.0.0",
+  "description": "A modern, developer-first Node.js SDK for accessing United States dam, lake, reservoir, and water level data for free.",
+  "main": "src/index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./src/index.js",
+      "import": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "data/",
+    "history/",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "update-data": "node updateLakeData.js"
+  },
+  "keywords": [
+    "dam",
+    "dams",
+    "lake",
+    "lakes",
+    "reservoir",
+    "water-levels",
+    "water-data",
+    "usgs",
+    "us-dams",
+    "lakelevels",
+    "damapi",
+    "sdk",
+    "hydrology"
+  ],
+  "author": "Kakahaja07",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kakahaja07/damapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kakahaja07/damapi/issues"
+  },
+  "homepage": "https://kakahaja07.github.io/damapi/",
   "dependencies": {
     "axios": "^1.7.7",
     "cheerio": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
